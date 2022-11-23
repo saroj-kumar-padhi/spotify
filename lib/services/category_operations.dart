@@ -9,7 +9,7 @@ class CategoryOperations{
     Category('Arijit songs', 'https://pbs.twimg.com/profile_images/795243556621336576/gbbQ-AUt_400x400.jpg'),
     Category('Arman', 'https://www.orissapost.com/wp-content/uploads/2020/08/Armaan-Malik-Pinterest-640x430-1.jpg'),
     Category('Fateh ', 'https://bestoftheyear.in/wp-content/uploads/2017/10/rahat-fateh-ali-khan-songs.jpg'),
-    Category('Neha kakkar', 'https://i.ytimg.com/vi/yjRZwHMybsE/sddefault.jpg'),
+    Category('Neha kakkar', 'https://storeassets.im-cdn.com/products/824941/0AwV62AjT0a8LkhfQ5nd_Mile%20Ho%20Tum%20Humko%20Guitar%20Tabs%20-%20Neha%20Kakkar_300x300_webp.jpg'),
     Category('Tulsi kumar', 'https://i.pinimg.com/236x/b2/61/f1/b261f18d0fc4872e9177daf93a9d25c9.jpg'),
 
     
