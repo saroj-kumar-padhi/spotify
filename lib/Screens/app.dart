@@ -13,7 +13,7 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  AudioPlayer _audioPlayer = new AudioPlayer();
+  final AudioPlayer _audioPlayer = AudioPlayer();
   var Tabs = [];
   int currentTabIndex = 0;
   bool isPlaying = false;
@@ -22,7 +22,7 @@ class _MyAppState extends State<MyApp> {
     this.music = music;
 
     if (music == null) {
-      return SizedBox();
+      return const SizedBox();
     }
     if (stop) {
       isPlaying = false;
@@ -41,7 +41,7 @@ class _MyAppState extends State<MyApp> {
           Image.network(music.image, fit: BoxFit.cover),
           Text(
             music.name,
-            style: TextStyle(color: Colors.white, fontSize: 20),
+            style: const TextStyle(color: Colors.white, fontSize: 20),
           ),
           IconButton(
               onPressed: () async {
@@ -54,8 +54,8 @@ class _MyAppState extends State<MyApp> {
                 setState(() {});
               },
               icon: isPlaying
-                  ? Icon(Icons.pause, color: Colors.white)
-                  : Icon(Icons.play_arrow, color: Colors.white))
+                  ? const Icon(Icons.pause, color: Colors.white)
+                  : const Icon(Icons.play_arrow, color: Colors.white))
         ],
       ),
     );
@@ -64,7 +64,7 @@ class _MyAppState extends State<MyApp> {
   @override
   initState() {
     super.initState();
-    Tabs = [Home(miniPlayer), Search(), Yourlibrary()];
+    Tabs = [Home(miniPlayer), Search(miniPlayer), const Yourlibrary()];
   }
 
   // UI Design Code Goes inside Build
@@ -85,10 +85,10 @@ class _MyAppState extends State<MyApp> {
               currentTabIndex = currentIndex;
               setState(() {}); // re-render
             },
-            selectedLabelStyle: TextStyle(color: Colors.white),
+            selectedLabelStyle: const TextStyle(color: Colors.white),
             selectedItemColor: Colors.white,
             backgroundColor: Colors.black45,
-            items: [
+            items: const [
               BottomNavigationBarItem(
                   icon: Icon(Icons.home, color: Colors.white), label: 'Home'),
               BottomNavigationBarItem(
