@@ -6,7 +6,7 @@ import 'package:chair/services/play_operations.dart';
 import 'package:flutter/material.dart';
 
 class Home extends StatelessWidget {
-  Function _miniPlayer;
+  final Function _miniPlayer;
   Home(this._miniPlayer); // Dart Constructor ShortHand
   // const Home({Key? key}) : super(key: key);
   Widget createCategory(Category category) {
@@ -16,10 +16,10 @@ class Home extends StatelessWidget {
           children: [
             Image.network(category.imageURL, fit: BoxFit.cover),
             Padding(
-              padding: EdgeInsets.only(left: 10),
+              padding: const EdgeInsets.only(left: 10),
               child: Text(
                 category.name,
-                style: TextStyle(color: Colors.white),
+                style: const TextStyle(color: Colors.white),
               ),
             )
           ],
@@ -38,11 +38,11 @@ class Home extends StatelessWidget {
 
   Widget createMusic(Music music) {
     return Padding(
-      padding: EdgeInsets.all(10),
+      padding: const EdgeInsets.all(10),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Container(
+          SizedBox(
             height: 200,
             width: 200,
             child: InkWell(
@@ -57,28 +57,27 @@ class Home extends StatelessWidget {
           ),
           Text(
             music.name,
-            style: TextStyle(color: Colors.white),
+            style: const TextStyle(color: Colors.white),
           ),
-          Text(music.desc, style: TextStyle(color: Colors.white))
+          Text(music.desc, style: const TextStyle(color: Colors.white))
         ],
       ),
     );
   }
 
-  
   Widget createMusicList(String label) {
     List<Music> musicList = MusicOperations.getMusic();
     return Padding(
-      padding: EdgeInsets.only(left: 10),
+      padding: const EdgeInsets.only(left: 10),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
             label,
-            style: TextStyle(
+            style: const TextStyle(
                 color: Colors.white, fontSize: 20, fontWeight: FontWeight.bold),
           ),
-          Container(
+          SizedBox(
             height: 300,
             child: ListView.builder(
               //padding: EdgeInsets.all(5),
@@ -93,19 +92,20 @@ class Home extends StatelessWidget {
       ),
     );
   }
+
   Widget createPlayList(String label) {
     List<Music> musicList = PlayOperations.getMusic();
     return Padding(
-      padding: EdgeInsets.only(left: 10),
+      padding: const EdgeInsets.only(left: 10),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
             label,
-            style: TextStyle(
+            style: const TextStyle(
                 color: Colors.white, fontSize: 20, fontWeight: FontWeight.bold),
           ),
-          Container(
+          SizedBox(
             height: 300,
             child: ListView.builder(
               //padding: EdgeInsets.all(5),
@@ -123,14 +123,14 @@ class Home extends StatelessWidget {
 
   Widget createGrid() {
     return Container(
-      padding: EdgeInsets.all(10),
+      padding: const EdgeInsets.all(10),
       height: 280,
       child: GridView.count(
         childAspectRatio: 5 / 2,
         crossAxisSpacing: 10,
         mainAxisSpacing: 10,
-        children: createListOfCategories(),
         crossAxisCount: 2,
+        children: createListOfCategories(),
       ),
     );
   }
@@ -140,7 +140,7 @@ class Home extends StatelessWidget {
       backgroundColor: Colors.transparent,
       elevation: 0.0,
       title: Text(message),
-      actions: [
+      actions: const [
         Padding(
             padding: EdgeInsets.only(right: 10), child: Icon(Icons.settings))
       ],
@@ -152,9 +152,15 @@ class Home extends StatelessWidget {
     return SingleChildScrollView(
       child: SafeArea(
           child: Container(
+        decoration: BoxDecoration(
+            gradient: LinearGradient(
+                colors: [Colors.blueGrey.shade300, Colors.black],
+                begin: Alignment.topLeft,
+                end: Alignment.bottomRight,
+                stops: const [0.1, 0.3])),
         child: Column(
           children: [
-            createAppBar('Nikki&Harman->Good Morning'),
+            createAppBar('Music Menia'),
             SizedBox(
               height: 5,
             ),
@@ -163,12 +169,6 @@ class Home extends StatelessWidget {
             createPlayList('Popular PlayList')
           ],
         ),
-        decoration: BoxDecoration(
-            gradient: LinearGradient(
-                colors: [Colors.blueGrey.shade300, Colors.black],
-                begin: Alignment.topLeft,
-                end: Alignment.bottomRight,
-                stops: [0.1, 0.3])),
         //child: Text('Hello Flutter'),
         //color: Colors.orange,
       )),
